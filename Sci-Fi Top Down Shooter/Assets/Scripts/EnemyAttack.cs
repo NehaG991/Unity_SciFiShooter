@@ -23,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
             anim.SetBool("attack", true);
 
             // decreases health everytime is attacked
-            content.fillAmount -= 0.01f;
+            content.fillAmount -= 0.015f;
 
         }
 
