@@ -21,15 +21,10 @@ public class EnemyAttack : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("attack", true);
-            // decreases health by 10% everytime is attacked
-            content.fillAmount -= 0.15f;
 
-            // need to make a death animation
-            /*if (content.fillAmount <= 0.01f)
-            {
-                Destroy(collision.gameObject);
-                
-            }*/
+            // decreases health everytime is attacked
+            content.fillAmount -= 0.01f;
+
         }
 
     }

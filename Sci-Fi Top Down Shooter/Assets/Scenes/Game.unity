@@ -3017,7 +3017,17 @@ PrefabInstance:
     - target: {fileID: 8119401286405802227, guid: b6839913d6119f64f8126163cc0f4da4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119401286818131687, guid: b6839913d6119f64f8126163cc0f4da4,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 256467641
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119401286818131687, guid: b6839913d6119f64f8126163cc0f4da4,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8119401286405802223, guid: b6839913d6119f64f8126163cc0f4da4, type: 3}

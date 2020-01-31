@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         content = GameObject.Find("content").GetComponent<Image>();
+        //isDead = false;
     }
 
 
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             if (content.fillAmount <= 0.01f)
             {
                 Destroy(gameObject);
+            
                 //animator.SetTrigger("dead");
                 //isDead = true;
             }

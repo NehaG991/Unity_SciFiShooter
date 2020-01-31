@@ -67,7 +67,7 @@ public class barrelExplosion : Alien
             {
                 alien = collision.GetComponent<Alien>();
                 alien.HealthAmount -= 0.5f;
-                //Debug.Log(alien.HealthAmount);
+                Debug.Log(alien.HealthAmount);
             }
         }
 

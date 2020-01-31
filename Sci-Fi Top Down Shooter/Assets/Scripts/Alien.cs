@@ -52,6 +52,18 @@ public class Alien : MonoBehaviour
         {
             healthAmount -= 0.15f;
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.rigidbody.isKinematic = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.rigidbody.isKinematic = false;
+        }
     }
 
 
