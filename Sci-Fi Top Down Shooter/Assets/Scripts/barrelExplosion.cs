@@ -60,7 +60,8 @@ public class barrelExplosion : Alien
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                content.fillAmount -= 0.25f;
+                content.fillAmount -= 1f;
+                collision.attachedRigidbody.angularVelocity = 0f;
             }
 
             if (collision.gameObject.CompareTag("Enemy"))

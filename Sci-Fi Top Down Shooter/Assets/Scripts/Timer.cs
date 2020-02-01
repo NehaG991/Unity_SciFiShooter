@@ -24,8 +24,8 @@ public class Timer : MonoBehaviour
 
         if (playerHP.fillAmount >= 0.1f)
         {
-            minutes = (int)(Time.time / 60f);
-            seconds = (int)(Time.time % 60f);
+            minutes = (int)(Time.timeSinceLevelLoad / 60f);
+            seconds = (int)(Time.timeSinceLevelLoad % 60f);
             counterText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
         }
 
