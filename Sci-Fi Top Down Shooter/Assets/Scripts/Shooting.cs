@@ -61,7 +61,7 @@ public class Shooting : MonoBehaviour
             }
 
             // calls the method shoot if the left mouse button is clicked 
-            else if (Input.GetButtonDown("Fire1"))
+            else if (PauseMenu.GameIsPaused == false && Input.GetButtonDown("Fire1"))
             {
                 Shoot();
             }
