@@ -22,7 +22,7 @@ public class ammoRefill : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-        clipText = GameObject.Find("ClipText").GetComponent<Text>();
+        clipText = GameObject.Find("BulletLeftText").GetComponent<Text>();
 
     }
 
@@ -34,15 +34,11 @@ public class ammoRefill : MonoBehaviour
 
             cstring = clipText.text;
 
-            indexSpace = cstring.IndexOf(" ");
+            clips = int.Parse(cstring);
 
-            clipsString = cstring.Substring(indexSpace + 1);
+            clips += 30;
 
-            clips = int.Parse(clipsString);
-
-            clips += 2;
-
-            clipText.text = "Clips: " + clips;
+            clipText.text = clips.ToString();
 
             used = true;
         }

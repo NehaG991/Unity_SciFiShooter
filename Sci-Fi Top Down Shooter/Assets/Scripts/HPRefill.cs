@@ -17,7 +17,7 @@ public class HPRefill : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && used != true)
+        if (collision.gameObject.CompareTag("Player") && used != true && content.fillAmount != 1.0f)
         {
             content.fillAmount = 1.0f;
             anim.SetBool("Used", true);

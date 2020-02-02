@@ -10,7 +10,6 @@ public class Shooting : MonoBehaviour
 
     // bullet stats
     public float bulletForce = 20f;
-    //public float damage = 20f;
     public int maxAmmo = 15;
     public int clips;
     public int currAmmo;
@@ -18,7 +17,6 @@ public class Shooting : MonoBehaviour
     public bool isReloading = false;
 
     private string cstring;
-    //private int currClips;
     private int indexSpace;
     private string clipsString;
 
@@ -31,10 +29,12 @@ public class Shooting : MonoBehaviour
     {
         currAmmo = maxAmmo;
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
-        ammoText.text = "Ammo: " + currAmmo;
-        clips = 3;
-        clipText = GameObject.Find("ClipText").GetComponent<Text>();
-        clipText.text = "Clips: " + clips;
+        //ammoText.text = "Ammo: " + currAmmo;
+        ammoText.text = currAmmo + "/15";
+        clips = 45;
+        clipText = GameObject.Find("BulletLeftText").GetComponent<Text>();
+        clipText.text = clips.ToString();
+        //clipText.text = "Clips: " + clips * 15;
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class Shooting : MonoBehaviour
                     Reload();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.R))
+            else if (Input.GetKeyDown(KeyCode.R) && currAmmo != 15)
             {
                 Reload();
             }
@@ -74,7 +74,8 @@ public class Shooting : MonoBehaviour
     {
         // decrease ammo by 1 and text
         currAmmo--;
-        ammoText.text = "Ammo: " + currAmmo;
+        //ammoText.text = "Ammo: " + currAmmo;
+        ammoText.text = currAmmo + "/15";
 
         // instantiates the bullet in front of the gun since thats where the game object was created at  
         GameObject bullet = Instantiate(BulletPrefab, firePoint.position, firePoint.rotation);
@@ -93,10 +94,14 @@ public class Shooting : MonoBehaviour
         // doesn't reload if clips is equal 0
         if (clips != 0)
         {
+            clips -= (15 - currAmmo);
+            if (clips < 0)
+            {
+                clips = 0;
+            }
             currAmmo = maxAmmo;
-            ammoText.text = "Ammo: " + currAmmo;
-            clips--;
-            clipText.text = "Clips: " + clips;
+            clipText.text = clips.ToString();
+            ammoText.text = currAmmo + "/15";
         }
 
     }
