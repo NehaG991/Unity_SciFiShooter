@@ -36,10 +36,6 @@ public class GameOver : MonoBehaviour
             result.text = "You survived for " + minutes.ToString("00") + ":" + seconds.ToString("00");
 
         }
-        else
-        {
-            Time.timeScale = 1f;
-        }
     }
 
     public void Restart()
