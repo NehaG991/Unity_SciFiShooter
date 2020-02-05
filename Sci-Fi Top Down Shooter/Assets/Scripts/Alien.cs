@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
+
+    // health amount of alien
     public float healthAmount = 1.0f;
     
-
+    // get set property of health
     public float HealthAmount
     {
         get
@@ -20,6 +22,7 @@ public class Alien : MonoBehaviour
         }
     }
 
+    // constructor for alien class
     public Alien()
     {
         healthAmount = 1.0f;
@@ -38,6 +41,8 @@ public class Alien : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // if the health is less than 1% it destroys the alien
         if (healthAmount <= 0.01)
         {
             Destroy(gameObject);
@@ -48,10 +53,13 @@ public class Alien : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+        // if it collides with a bullet that it loses a third of it's health
         if (collision.gameObject.CompareTag("Bullet") )
         {
-            healthAmount -= 0.15f;
+            healthAmount -= 0.34f;
         }
+
+        // so that the player can go through the enemy sprite
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.rigidbody.isKinematic = true;
@@ -60,6 +68,8 @@ public class Alien : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+
+        // returns the player back to the dynamic rigidbody so that the player can't go through other colliders like walls and barrels
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.rigidbody.isKinematic = false;

@@ -27,48 +27,22 @@ public class EnemyHPBar : Alien //MonoBehaviour
     void Start()
     {
         // THIS WORKS WITHOUT STATIC HEALTH VARIABLE
+        // gets the healthamount variable from the alien class so that the healthbar scale can be edited
         alien = enemy.GetComponent<Alien>();
         health = alien.HealthAmount;
         localScale.x = health;
         localScale = transform.localScale;
-
-
-
-
-        //alien.HealthAmount = gameObject.GetComponentInParent<Alien>().healthAmount;
-
-        /*health = gameObject.GetComponentInParent<Alien>().HealthAmount;
-        localScale.x = health;
-        localScale = transform.localScale;*/
-
-        //localScale.x = Alien.healthAmount;
-        //localScale = transform.localScale;    
     }
 
     void Update()
     {
-        
-
-
-
         // THIS WORKS WITHOUT STATIC HEALTH VARIABLE
+        // transforms the scale of the health based on the currenthealth of the alien object
         health = alien.HealthAmount;
         Debug.Log(health);
         localScale.x = health;
         transform.localScale = localScale;
 
-
-        //alien.HealthAmount = gameObject.GetComponentInParent<Alien>().healthAmount;
-
-        //health = gameObject.GetComponentInParent<Alien>().HealthAmount;
-        //Debug.Log(health);
-        //localScale.x = health;
-        //localScale = transform.localScale;
-        //transform.localScale = localScale;
-
-
-        //localScale.x = Alien.healthAmount; 
-        //transform.localScale = localScale;
     }
 
 }

@@ -12,10 +12,12 @@ public class EnemyAttack : MonoBehaviour
 
     void Start()
     {
+        // gets the animator component of the enemy and the player hp
         anim = GetComponent<Animator>();
         content = GameObject.Find("content").GetComponent<Image>();
     }
 
+    // if the player triggers the enemy that it plays the attack animation and lowers player health
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -29,13 +31,13 @@ public class EnemyAttack : MonoBehaviour
 
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    /*public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("attack", false);
         }
-    }
+    }*/
 
     
 }

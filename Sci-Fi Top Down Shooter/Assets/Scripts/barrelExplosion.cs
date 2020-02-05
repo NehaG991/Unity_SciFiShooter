@@ -15,6 +15,8 @@ public class barrelExplosion : Alien
     // Start is called before the first frame update
     void Start()
     {
+
+        // gets the animator commpent, playerHP, and bools to check the the current state of the barrel
         anim = GetComponent<Animator>();
         content = GameObject.Find("content").GetComponent<Image>();
         this.exploding = false;
@@ -24,6 +26,7 @@ public class barrelExplosion : Alien
 
     void Update()
     {
+        // changes the bool based on if the barrel is exploding, done exploding, or didn't exploded yet
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("barrelExplosion"))
         {
             this.exploding = true;
@@ -41,6 +44,8 @@ public class barrelExplosion : Alien
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
+        // if a bullet collides with the barrel, it sets the animator to the exploding animation and changes the bool
         if (exploding == false && done == false)
         {
             if (collision.gameObject.CompareTag("Bullet"))
@@ -56,6 +61,7 @@ public class barrelExplosion : Alien
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        // if hte barrel is exploding and a alien or the player collides with its collider the objects lose health
         if (this.exploding)
         {
             if (collision.gameObject.CompareTag("Player"))

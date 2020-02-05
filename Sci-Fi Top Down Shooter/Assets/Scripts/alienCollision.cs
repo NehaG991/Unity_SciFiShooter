@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class alienCollision : MonoBehaviour
 {
-    public Image playerHP;
+    //public Image playerHP;
 
-    private void Start()
-    {
-        playerHP = GameObject.Find("content").GetComponent<Image>();
-    }
+    //private void Start()
+    //{
+        //playerHP = GameObject.Find("content").GetComponent<Image>();
+    //}
 
     void OnCollisionExit2D(Collision2D collision)
     {

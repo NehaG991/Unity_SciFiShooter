@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    // class the basically makes the camera follow the player
 
     public GameObject player; // stores reference to player
 

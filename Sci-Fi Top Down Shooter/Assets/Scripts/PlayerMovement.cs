@@ -20,35 +20,28 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    //private bool isDead;
-
     public void Start()
     {
         content = GameObject.Find("content").GetComponent<Image>();
-        //isDead = false;
     }
 
 
     private void Update()
     {
-
+            // gets the x and y axis of the player and plays the movement animation if the player is moving
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-
             verticalMove = Input.GetAxis("Vertical") * speed;
-
-
             animator.SetFloat("Speed", Mathf.Abs(verticalMove));
 
-
+            // gets the mouse position
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
+            
+            // destroys the player object is the health is less than 1%
             if (content.fillAmount <= 0.01f)
             {
                 Destroy(gameObject);
-            
-                //animator.SetTrigger("dead");
-                //isDead = true;
+           
             }
         
 
@@ -59,10 +52,10 @@ public class PlayerMovement : MonoBehaviour
     {
 
 
-
+            // moves the rigidbody of the player based on its current position and speed at a fixed time interval
             rb2d.MovePosition(rb2d.position + movement * speed * Time.fixedDeltaTime);
 
-
+            // makes the front of the player sprite follow the mouse position
             Vector2 lookDir = mousePos - rb2d.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
             rb2d.rotation = angle;

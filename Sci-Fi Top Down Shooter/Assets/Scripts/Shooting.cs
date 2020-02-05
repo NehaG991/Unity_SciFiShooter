@@ -29,12 +29,10 @@ public class Shooting : MonoBehaviour
     {
         currAmmo = maxAmmo;
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
-        //ammoText.text = "Ammo: " + currAmmo;
         ammoText.text = currAmmo + "/15";
         clips = 45;
         clipText = GameObject.Find("BulletLeftText").GetComponent<Text>();
         clipText.text = clips.ToString();
-        //clipText.text = "Clips: " + clips * 15;
     }
 
     // Update is called once per frame
@@ -46,6 +44,7 @@ public class Shooting : MonoBehaviour
         clipsString = cstring.Substring(indexSpace + 1);
         clips = int.Parse(clipsString);
 
+        // checks if there's any ammo left to reload and reloads if r is pressed and current ammo is not full
         if (clips >= 0)
         {
             if ((currAmmo <= 0))
@@ -60,7 +59,7 @@ public class Shooting : MonoBehaviour
                 Reload();
             }
 
-            // calls the method shoot if the left mouse button is clicked 
+            // calls the method shoot if the left mouse button is clicked and the game is not paused
             else if (PauseMenu.GameIsPaused == false && Input.GetButtonDown("Fire1"))
             {
                 Shoot();
@@ -94,6 +93,7 @@ public class Shooting : MonoBehaviour
         // doesn't reload if clips is equal 0
         if (clips != 0)
         {
+            // changes the leftover ammo based how much of the current ammo is used
             clips -= (15 - currAmmo);
             if (clips < 0)
             {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-
+    //fields 
     public Text counterText;
     public float seconds;
     public float minutes;
@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // gets the timer and player hp from the ui
         counterText = GameObject.Find("Timer").GetComponent<Text>();
         playerHP = GameObject.Find("content").GetComponent<Image>();
     }
@@ -21,7 +22,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // as long as the player is alive, the timer counts up based on how long the game been loaded
         if (playerHP.fillAmount >= 0.1f)
         {
             minutes = (int)(Time.timeSinceLevelLoad / 60f);
